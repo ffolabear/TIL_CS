@@ -77,6 +77,17 @@
 
 <br>
 
+### 자바의 접근 제어자에는 어떤것이 있나요? 
+- `public` : 어디서든 접근 가능, `private` 멤버에 접근할수 있게 도와주는 역할도 함
+
+- `private` : 해당 멤버를 포함하는 클래스 내부에서만 접근 가능
+  만약 외부에서 `private` 에 접근하게 하고 싶다면 `getter` 를 사용하는 방식 고려
+
+- `protected` : 해당 멤버를 포함하는 클래스와 같은 패키지 혹은 해당 클래스를 상속한 클래스에서 접근 가능
+  `private` 와는 다르게 상속 받아도 접근 가능
+
+- `default` : 같은 클래스의 멤버와 해당 클래스가 정의되어 있는 패키지 내에서 접근 가능
+
 
 </div>
 </details>
@@ -135,6 +146,99 @@
 
 </div>
 </details>
+
+<br>
+
+### 3. 자바의 데이터 타입에는 어떤것이 있나요?
+
+#### 기본형 데이터
+- 정수형 : byte, short, int, long
+- 실수형 : float, double
+- 논리형 : boolean
+- 문자형 : char  
+
+기본 타입의 크기가 작고 고정적이기 때문에 메모리의 Stack 영역에 저장
+
+#### 참조형 데이터
+- class, array, interface, Enumeration
+- 기본형 데이터를 제외하고는 모두 참조형 데이터
+- 참조 타입의 데이터의 크기가 가변적, 동적이기 때문에 동적으로 관리되는 Heap 영역에 저장
+- 더 이상 참조하지 않을 경우 GC가 처리
+- 값이 저장된 곳의 주소를 저장하는 공간으로 객체의 주소를 저장
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### 자바의 문자열을 다루는 객체는 어떤것들이 있고 그 차이점을 설명해주세요.
+String, StringBuilder, StringBuffer 세가지가 존재
+
+#### String
+- immutable
+- 문자열을 연산시 원본을 복사한 새로운 객체를 생성하기 때문에 메모리 낭비와 성능감소 발생
+
+#### StringBuilder, StringBuffer
+- mutable
+- 문자열을 연산시 원본객체로 연산하여 크기를 변경시켜 문자열을 변경
+- 문자열이 빈번할 경우 성능적으로 우수
+
+#### 차이점
+- `StringBuilder` 는 Thread-Safe❌ , 멀티 쓰레드 ❌
+- `StringBuffer` 는 Thread-Safe⭕️ , 멀티 쓰레드 ⭕️
+
+따라서 싱글 쓰레드와 동기화를 고려해야하지 않는 상황에서는 `StringBuilder`, 그렇지 않다면 `StringBuffer` 를 사용
+
+<br>
+
+</div>
+</details>
+
+<br>
+
+### 4. Call by value 와 Call by Reference 에 대해서 설명해주세요.
+
+#### `call by value` 
+`call by value` 는 값을 원시타입을 값으로 가지는 것  
+`call by value` 로 값을 전달할때는 원본 값을 복사해서 전달하기 때문에 전달한 값을 변경해도 원본 값에는 영향을 미치지 않음
+
+#### `call by reference`
+`call by reference` 는 값을 참조하는 주소로 가지는 것
+`call by reference` 는 값이 있는 주소를 전달하기 때문에 원본 값과 전달한 값은 같은 값  
+그러므로 전달한 값을 변경하면 원본값에 변경사항이 반영됨
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### `==` 와 `equals()` 의 차이점에 대해 말해보세요.
+- `==` : 비교하고자 하는 대상의 주소값을 비교
+- `equals()` : 객체끼리 내용을 비교
+
+<br>
+
+### 문자열에서 `equals()` 메소드 동작 원리에 대해 설명해주세요.
+`equals()` 는 대상의 주소가 아닌 내용 자체를 비교
+1. 같은 객체인지 비교
+2. 대상 객체가 `String` 인지 판별
+3. `String` 이라면 char[] 배열로 변환해서 앞에서부터 하나씩 비교해서 맞으면 `true` 다르면 `false`
+
+
+<br>
+
+### String str ="i" 와 String str = new String("i")가 동일한가요?
+다름. 전자로 선언할 경우 이후 같은 값을 가지는 변수를 생성시 같은 주소를 참조하는 반면 후자로 변수를 선언하면 이후 같은 값을 가지는 변수를 생성시 다른 주소를 참조  
+
+> String literal 로 생성하면 문자열은 Heap 영역의 String Constant Pool 에 저장되어 후에 같은 문자열값을 가지는 변수를 생성시 재사용되지만
+> new 연산자로 생성하면 재사용되지 않고 각각의 Heap 영역을 가짐  
+> 하지만 intern 메소드를 사용시 해당 문자열과 동일한 문자열이 String Pool에 존재하면 그 객체를 그대로 리턴
+
+
+<br>
+
+</div>
+</details>
+
+<br>
 
 <br>
 <br>
