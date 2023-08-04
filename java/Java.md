@@ -6,7 +6,9 @@
 > 실제 면접에서 나올법한 흐름으로 작성 
 - [Java 의 특징에 대해 말해주세요.](#1.-Java-의-특징에-대해-말해주세요.)  
 - [JVM 에 대해 아는 것을 설명해보세요.](#2.-JVM-에-대해-아는-것을-설명해보세요.)
-
+- [자바의 데이터 타입에는 어떤것이 있나요?](#3.-자바의-데이터-타입에는-어떤것이-있나요?)
+- [Call by value 와 Call by Reference 에 대해서 설명해주세요.](#4.-Call-by-value-와-Call-by-Reference-에-대해서-설명해주세요.)
+- [Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.](#5.-Java의-non-static-멤버와-static-멤버의-차이에-대해서-설명해보세요.)
 --- 
 
 ### 1. Java 의 특징에 대해 말해주세요.
@@ -231,6 +233,36 @@ String, StringBuilder, StringBuffer 세가지가 존재
 > String literal 로 생성하면 문자열은 Heap 영역의 String Constant Pool 에 저장되어 후에 같은 문자열값을 가지는 변수를 생성시 재사용되지만
 > new 연산자로 생성하면 재사용되지 않고 각각의 Heap 영역을 가짐  
 > 하지만 intern 메소드를 사용시 해당 문자열과 동일한 문자열이 String Pool에 존재하면 그 객체를 그대로 리턴
+
+
+<br>
+
+</div>
+</details>
+
+### 5. Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.
+
+#### static
+- 클래스 내에 Static 키워드로 선언된 변수
+- 처음 JVM이 실행되어 클래스가 메모리에 올라갈 때 ~ 프로그램이 종료될 때까지 유지
+- 동일한 클래스의 모든 객체들에 의해서 공유됨
+- 클래스 당 하나만 생성
+- Static(메소드 영역) 영역에 생성됨 
+
+#### non-static
+- 클래스 내에 선언된 변수
+- 객체 생성 시마다 매번 새로운 변수가 생성됨
+- 클래스 변수와 달리 공유되지 않음
+- Heap 영역에 생성되고 객체의 주소는 Stack 영역에 생성
+- 객체가 생길 때 멤버도 생성
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### final 과 static final 은 어떤 차이가 있나요?
+- final 은 변수의 최초 할당 후 재할당 할 수 없음을 뜻함
+- static final 은 최초 할당 후 불변하며 어디서든 동일한 값을 보장할 수 있으므로 상수를 선언할때 주로 사용
 
 
 <br>
