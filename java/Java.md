@@ -330,5 +330,37 @@ String, StringBuilder, StringBuffer 세가지가 존재
 </div>
 </details>
 
+### 7. 자바에서 Thread 를 구현하려면 어떻게 해야하나요?
+두가지 방법이 존재
+
+- `Runnable` 인터페이스 구현
+  - `run()` 메소드를 오버리이딩
+  - `Thread` 객체를 생성할때 `Runnable` 인터페이스 구현체를 생성자에 넘겨준 후 `Thread` 객체의 `start()` 메소드를 수행
+  - `Thread` 클래스의 static 메소드인 `currentThread()` 를 호출해 현재 스레드에 대한 참조를 얻어와야만 호출이 가능
+
+- `Thread` 클래스 상속
+  - `run()` 메소드를 직접 구현해야함
+
+쓰레드의 실행은 `run()` 호출이 아닌 `start()` 호출해야함
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### 쓰레드와 프로세스의 차이점을 설명해보세요.
+
+#### 쓰레드
+- 작업의 단위
+- 프로세스 내에서  실행되는 여러 흐름의 단위
+- 하나의 프로세스 내에는 여러개의 쓰레드가 존재할 수 있음
+
+#### 프로세스
+
+<br>
+
+</div>
+</details>
+
+
 <br>
 <br>
