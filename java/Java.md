@@ -4,12 +4,12 @@
 
 ### 📄 Contents
 > 실제 면접에서 나올법한 흐름으로 작성 
-- [Java 의 특징에 대해 말해주세요.](#1.-java-의-특징에-대해-말해주세요.)  
-- [JVM 에 대해 아는 것을 설명해보세요.](#2.-jvm-에-대해-아는-것을-설명해보세요.)
-- [자바의 데이터 타입에는 어떤것이 있나요?](#3.-자바의-데이터-타입에는-어떤것이-있나요?)
-- [Call by value 와 Call by Reference 에 대해서 설명해주세요.](#4.-call-by-value-와-call-by-reference-에-대해서-설명해주세요.)
-- [Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.](#5.-java의-non-static-멤버와-static-멤버의-차이에-대해서-설명해보세요.)
-- [Overloading 과 Overriding 의 차이점에 대해 설명해보세요](#6.-overloading-과-overriding-의-차이점에-대해-설명해보세요)
+- [Java 의 특징에 대해 말해주세요.](#-1.-java-의-특징에-대해-말해주세요.)  
+- [JVM 에 대해 아는 것을 설명해보세요.](#-2.-jvm-에-대해-아는-것을-설명해보세요.)
+- [자바의 데이터 타입에는 어떤것이 있나요?](#-3.-자바의-데이터-타입에는-어떤것이-있나요?)
+- [Call by value 와 Call by Reference 에 대해서 설명해주세요.](#-4.-call-by-value-와-call-by-reference-에-대해서-설명해주세요.)
+- [Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.](#-5.-java의-non-static-멤버와-static-멤버의-차이에-대해서-설명해보세요.)
+- [Overloading 과 Overriding 의 차이점에 대해 설명해보세요](#-6.-overloading-과-overriding-의-차이점에-대해-설명해보세요)
 --- 
 
 ### 1. Java 의 특징에 대해 말해주세요.
