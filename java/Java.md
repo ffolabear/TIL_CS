@@ -10,6 +10,7 @@
 - [Call by value 와 Call by Reference 에 대해서 설명해주세요.](#call-by-value-와-call-by-reference-에-대해서-설명해주세요)
 - [Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.](#java의-non-static-멤버와-static-멤버의-차이에-대해서-설명해보세요)
 - [Overloading 과 Overriding 의 차이점에 대해 설명해보세요](#overloading-과-overriding-의-차이점에-대해-설명해보세요)
+- [Error 와 Exception 에 대해 설명해주세요.](#error-와-exception-에-대해-설명해주세요)
 --- 
 
 ### Java 의 특징에 대해 말해주세요.
@@ -148,6 +149,20 @@
 
 - 자바로 개발을 하기위해 필료한 것들을 모아놓은 패키지
 - 개발에 필요한 라이브러리들과 Javac, Javadoc, JRE 를 포함
+
+<br>
+
+### GC에 대해 설명해주세요.
+- Minor GC, Major GC 로 나뉨
+1. 처음 객체가 Minor GC(Young Generation)의 Eden 영역에 할당
+2. Eden 영역이 꽉차고 Minor GC 가 사용하지 않는 메모리를 헤제하고 살아남은 객체는 Survivor 영역으로 이동
+3. Survivor 영역의 살아남은 객체는 Old 영역으로 이동 
+4. Old 영역이 가득 차면 Major GC 가 사용하지 않는 메모리를 헤제
+ 
+#### (스터디 추가질문) GC의 단점은 무엇인가요?
+- 예측 불가능한 지연 : 시스템이 언제 수행할지 개발자가 예측하기 어려울 수 있음
+- 자원 소모 : CPU 자원과 메모리를 사용하므로 어플리케이션의 자원 소모를 유발할 수 있음
+
 
 </div>
 </details>
@@ -367,12 +382,23 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 ### 쓰레드와 프로세스의 차이점을 설명해보세요.
 
+#### 프로세스
+- 실행중인 프로그램
+- 메모리에 올라와 실행되고 있는 프로그램의 인스턴스
+- 4가지 메모리 영역을 할당
+  - Code : 프로그램 함수들의 코드가 CPU가 해석 가능한 기계어 형태로 저장
+  - Data : 코드가 실행되면서 사용하는 전역 변수나 각종 데이터들이 저장
+  - Stack : 지역 변수와 같은 호출한 함수가 종료되면 되돌아올 임시적인 자료를 저장하는 독립적인 공간
+  - Heap : 생성자, 인스턴스와 같은 동적으로 할당되는 데이터들을 위해 존재하는 공간
+
+Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이지만 Stack 과 Heap 은 동적 영역
+
 #### 쓰레드
 - 작업의 단위
-- 프로세스 내에서  실행되는 여러 흐름의 단위
+- 프로세스 내에서 실행되는 여러 흐름의 단위
 - 하나의 프로세스 내에는 여러개의 쓰레드가 존재할 수 있음
+- 프로세스의 Stack 영역만 할당 받고 다른 영역은 쓰레드간 공유
 
-#### 프로세스
 
 <br>
 
@@ -383,6 +409,50 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 ---
 
+### Error 와 Exception 에 대해 설명해주세요.
+
+#### Error
+- 심각한 문제로서 프로그램이 복구할 수 없는 상황
+- 컴파일시 발생
+- ex) `StackOverFlowError`, OutOfMemoryError
+
+#### Exception
+- 프로그램 실행 중에 발생하는 일반적인 문제
+- 프로그램에서 복구할 수 있는 상황으로, 적절한 처리로 프로그램의 실행 흐름을 계속할 수 있음
+
+  #### Checked Exception 
+  - 반드시 처리해야하는 예외
+  - ex) `IOException`, `SQLException`
+  
+  #### Unchecked Exception
+  - 예외 처리를 강제하지 않음 
+  - RuntimeException
+  - ex) `NullPointException`
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### Throw 와 Throws 의 차이에 대해 설명해주세요.
+
+#### Throw
+- 예외를 명시적으로 발생시키는데 사용
+
+#### Throws
+- 메서드 선언부에 사용
+- 에러 발생시 책임을 전가하는 용도로도 사용 가능
+- 해당 메서드가 발생시킬 수 있는 예외들을 명시적으로 나열하는 데 사용
+
+<br>
+
+</div>
+</details>
+
+<br>
+
+---
+
+### 
 
 <br>
 <br>
