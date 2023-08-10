@@ -4,13 +4,14 @@
 
 ### 📄 Contents
 > 실제 면접에서 나올법한 흐름으로 작성 
-- [Java 의 특징에 대해 말해주세요.](#1-java-의-특징에-대해-말해주세요)  
-- [JVM 에 대해 아는 것을 설명해보세요.](#jvm-에-대해-아는-것을-설명해보세요)
-- [자바의 데이터 타입에는 어떤것이 있나요?](#자바의-데이터-타입에는-어떤것이-있나요)
-- [Call by value 와 Call by Reference 에 대해서 설명해주세요.](#call-by-value-와-call-by-reference-에-대해서-설명해주세요)
-- [Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.](#java의-non-static-멤버와-static-멤버의-차이에-대해서-설명해보세요)
-- [Overloading 과 Overriding 의 차이점에 대해 설명해보세요](#overloading-과-overriding-의-차이점에-대해-설명해보세요)
-- [Error 와 Exception 에 대해 설명해주세요.](#error-와-exception-에-대해-설명해주세요)
+- [1. Java 의 특징에 대해 말해주세요.](#1-java-의-특징에-대해-말해주세요)  
+- [2. JVM 에 대해 아는 것을 설명해보세요.](#2-jvm-에-대해-아는-것을-설명해보세요)
+- [3. 자바의 데이터 타입에는 어떤것이 있나요?](#3-자바의-데이터-타입에는-어떤것이-있나요)
+- [4. Call by value 와 Call by Reference 에 대해서 설명해주세요.](#4-call-by-value-와-call-by-reference-에-대해서-설명해주세요)
+- [5. Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.](#5-java의-non-static-멤버와-static-멤버의-차이에-대해서-설명해보세요)
+- [6. Overloading 과 Overriding 의 차이점에 대해 설명해보세요](#6-overloading-과-overriding-의-차이점에-대해-설명해보세요)
+- [7. 자바에서 Thread 를 구현하려면 어떻게 해야하나요?](#7-자바에서-thread-를-구현하려면-어떻게-해야하나요)
+- [8. Error 와 Exception 에 대해 설명해주세요.](#8-error-와-exception-에-대해-설명해주세요)
 --- 
 
 ### 1. Java 의 특징에 대해 말해주세요.
@@ -100,7 +101,7 @@
 
 ---
 
-### JVM 에 대해 아는 것을 설명해보세요.
+### 2. JVM 에 대해 아는 것을 설명해보세요.
 - 자바 가상 머신의 약자를 따서 줄여 부르는 용어로 자바 파일을 실행할 수 있게 해주는것
 - OS에 종속받지 않고 CPU 가 Java를 인식, 실행할 수 있게 하는 가상 컴퓨터
 
@@ -171,7 +172,7 @@
 
 ---
 
-### 자바의 데이터 타입에는 어떤것이 있나요?
+### 3. 자바의 데이터 타입에는 어떤것이 있나요?
 
 #### 기본형 데이터
 - 정수형 : byte, short, int, long
@@ -219,7 +220,7 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 ---
 
-### Call by value 와 Call by Reference 에 대해서 설명해주세요.
+### 4. Call by value 와 Call by Reference 에 대해서 설명해주세요.
 
 #### `call by value` 
 `call by value` 는 값을 원시타입을 값으로 가지는 것  
@@ -267,7 +268,7 @@ String, StringBuilder, StringBuffer 세가지가 존재
 ---
 
 
-### Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.
+### 5. Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.
 
 #### static
 - 클래스 내에 Static 키워드로 선언된 변수
@@ -307,7 +308,7 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 ---
 
-### Overloading 과 Overriding 의 차이점에 대해 설명해보세요
+### 6. Overloading 과 Overriding 의 차이점에 대해 설명해보세요
 
 #### Overloading
 - 같은 이름의 메소드를 다르게 정의하는것
@@ -363,7 +364,7 @@ String, StringBuilder, StringBuffer 세가지가 존재
 <br>
 
 ---
-### 자바에서 Thread 를 구현하려면 어떻게 해야하나요?
+### 7. 자바에서 Thread 를 구현하려면 어떻게 해야하나요?
 두가지 방법이 존재
 
 - `Runnable` 인터페이스 구현
@@ -409,7 +410,7 @@ Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이�
 
 ---
 
-### Error 와 Exception 에 대해 설명해주세요.
+### 8. Error 와 Exception 에 대해 설명해주세요.
 
 #### Error
 - 심각한 문제로서 프로그램이 복구할 수 없는 상황
