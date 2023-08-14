@@ -4,14 +4,14 @@
 
 ### 📄 Contents
 > 실제 면접에서 나올법한 흐름으로 작성
-- [1. Spring 의 특징에 대해서 설명해보세요.](#spring-의-특징에-대해서-설명해보세요)
+- [1. Spring 의 특징에 대해서 설명해보세요.](#1-spring-의-특징에-대해서-설명해보세요)
 - [2. Spring MVC 처리흐름에 대해서 말해보세요.](#2-spring-mvc-처리흐름에-대해서-말해보세요)
 - [4. Spring 에서 멀티스레드의 동작 방식에 대해 설명해주세요.](#4-spring-에서-멀티스레드의-동작-방식에-대해-설명해주세요)
 - [5. JPA에 대해 설명해주세요.](#5-jpa에-대해-설명해주세요)
 - [6. 필터와 인터셉터에 대해 설명해주세요](#6-필터와-인터셉터에-대해-설명해주세요)
 --- 
 
-### Spring 의 특징에 대해서 설명해보세요.
+### 1. Spring 의 특징에 대해서 설명해보세요.
 - 자바 엔터프라이즈 개발을 편하게 해주는 경량급 오픈소스 애플리케이션 프레임워크
 - POJO 기반의 Enterprise Application 개발을 쉽고 편하게 할 수 있음
 
@@ -27,6 +27,24 @@
 
 ### AOP(Aspect-Oriented Programming) - 관점지향 프로그래밍
 - 트랜잭션이나 로깅, 보안과 같이 여러 모듈에서 공통적으로 사용하는 기능의 경우 해당 기능을 분리하여 관리할 수 있음
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### DI 의 방법에 대해 설명해주세요.
+- 필드 주입, 생성자 주입, setter 주입이 있음
+- 생성자 주입이 가장 권장됨
+
+#### 이유
+- setter 주입을 할 경우 public 으로 설정해야 하므로 변경에 열려있어서 위험
+- 테스트 코드를 짜기 편함
+- 객체 생성 시점에 불변하게 설계해서 변경을 막을 수 있음
+
+</div>
+</details>
+
+<br>
 
 <br>
 
@@ -101,26 +119,114 @@ Model, View, Controller 를 구성요소로 개발하는 패턴
 
 <br>
 
+### 2. Spring MVC 처리흐름에 대해서 말해보세요.
+1. 클라이언트의 Request 를 `DispatcherServlet` 이 받음
+2. `HandlerMapping` 에서 요청한 URL과 매칭되는 컨트롤러를 검색
+3. `HandlerMapping` 이 찾은 `Handler` 를 `HandlerAdapter` 가 실행
+   ```java
+   public class DispatcherServlet extends FrameworkServlet {
+        //...
+        protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
+            HandlerExecutionChain mappedHandler = null;
+            //...
+            try {
+                //HandlerMapping 이 요청에 맞는 handler 를 가져오는 부분
+                mappedHandler = getHandler(processedRequest);
+                //...
+                
+                //요청에 맞는 handler 를 가져오는 부분
+                HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
+            } catch (Exception ex){
+   
+            }
+        }
+        //...
+   }    
+   ```
+
+4. Controller 에서 요청을 처리하고 처리 결과를 `ModelAndView` 로 리턴
+5. `ModelAndView` 를 읽어서 그에 맞는 view 를 `ViewResolver` 가 해석해서 리턴
+   - `doDispatch()` 메소드에서 `render()` 메소드를 호출하고 그 메소드에서 view 를 리턴
+
+   ```java
+    public class DispatcherServlet extends FrameworkServlet {
+        //...
+        @Nullable
+        protected View resolveViewName(String viewName, @Nullable Map<String, Object> model, Locale locale, HttpServletRequest request) throws Exception {
+
+            if (this.viewResolvers != null) {
+                for (ViewResolver viewResolver : this.viewResolvers) {
+                    View view = viewResolver.resolveViewName(viewName, locale);
+                    if (view != null) {
+                        return view;
+                    }
+                }
+            }
+            return null;
+        }
+        //...
+   }
+   ```
+
+<details>
+<summary>꼬리질문</summary>
+<div markdown="1">
+
+### MVC 패턴에 대해 설명해주세요.
+Model, View, Controller 를 구성요소로 개발하는 패턴
+
+#### Model
+- 데이터와 비즈니스 로직을 담당
+
+#### View
+- 사용자 인터페이스를 표현하고 데이터를 시각적으로 표현하는 역할
+
+#### Controller
+- 사용자의 입력을 처리하고 Model 과 View 를 연결하는 역할
+
+
+</div>
+</details>
+
+<br>
+
 ---
 
 ### 3. Spring Bean 에 대해 설명해주세요.
 - 스프링 컨테이너가 관리하는 객체
 - 스프링 컨테이너가 컴포넌트 스캔을 통해 Bean 으로 등록할 대상들을 탐색 후 등록
-- Singleton 으로 관리됨
+- 스프링 컨테이너가 Singleton 으로 관리해줌
 
 <details>
 <summary>꼬리질문</summary>
 <div markdown="1">
 
 ### Bean 생명 주기에 대해 설명해주세요.
+1. 스프링 컨테이너 생성
+2. 스프링 빈 생성
+3. 의존관계 주입
+4. 초기화 콜백 사용
+5. 빈 사용
+6. 소멸전 콜백
+7. 스프링 종료
+
+빈 생성 콜백은 `@PostConstruct`, 빈 소멸 콜백은 `@PreDestroy` 어노테이션을 해당 메서드에 붙이면 됨
 
 <br>
 
 ### Singleton 패턴에 대해 설명해주세요.
+- 객체의 인스턴스가 오직 1개만 생성되는 패턴을 의미
+- 일반적으로 Singleton 패턴을 구현하려면 3단계가 필요
+  1. private 생성자를 선언
+  2. 해당 객체를 리턴하는 `getInstance()` 메서드를 선언
+  3. 해당 객체를 의미하는 필드를 private 생성자로 초기화
 
 <br>
 
 ### 스프링 컨테이너에 대해 설명해주세요.
+- 스프링 프레임워크의 핵심 컴포넌트
+- Bean 객체들의 의존성을 주입하며 Bean 의 라이프 사이클을 관리
+- 낮은 결함도와 높은 결합도를 가지게 개발할 수 있게 해줌
 
 <br>
 
