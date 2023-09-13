@@ -1,6 +1,6 @@
 # Spring 면접대비 질문 리스트
 
-<hr>
+---
 
 ### 📄 Contents
 
@@ -8,6 +8,7 @@
 
 - [1. Spring 의 특징에 대해서 설명해보세요.](#1-spring-의-특징에-대해서-설명해보세요)
 - [2. Spring MVC 처리흐름에 대해서 말해보세요.](#2-spring-mvc-처리흐름에-대해서-말해보세요)
+- [3. Spring Bean 에 대해 설명해주세요.](#3-spring-bean-에-대해-설명해주세요)
 - [4. Spring 에서 멀티스레드의 동작 방식에 대해 설명해주세요.](#4-spring-에서-멀티스레드의-동작-방식에-대해-설명해주세요)
 - [5. JPA에 대해 설명해주세요.](#5-jpa에-대해-설명해주세요)
 - [6. 필터와 인터셉터에 대해 설명해주세요](#6-필터와-인터셉터에-대해-설명해주세요)
@@ -56,80 +57,7 @@
 
 <br>
 
-### 2. Spring MVC 처리흐름에 대해서 말해보세요.
-
-1. 클라이언트의 Request 를 `DispatcherServlet` 이 받음
-2. `HandlerMapping` 에서 요청한 URL과 매칭되는 컨트롤러를 검색
-3. `HandlerMapping` 이 찾은 `Handler` 를 `HandlerAdapter` 가 실행
-   ```java
-   public class DispatcherServlet extends FrameworkServlet {
-        //...
-        protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
-            HandlerExecutionChain mappedHandler = null;
-            //...
-            try {
-                //HandlerMapping 이 요청에 맞는 handler 를 가져오는 부분
-                mappedHandler = getHandler(processedRequest);
-                //...
-                
-                //요청에 맞는 handler 를 가져오는 부분
-                HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());
-            } catch (Exception ex){
-   
-            }
-        }
-        //...
-   }    
-   ```
-
-4. Controller 에서 요청을 처리하고 처리 결과를 `ModelAndView` 로 리턴
-5. `ModelAndView` 를 읽어서 그에 맞는 view 를 `ViewResolver` 가 해석해서 리턴
-    - `doDispatch()` 메소드에서 `render()` 메소드를 호출하고 그 메소드에서 view 를 리턴
-
-   ```java
-    public class DispatcherServlet extends FrameworkServlet {
-        //...
-        @Nullable
-        protected View resolveViewName(String viewName, @Nullable Map<String, Object> model, Locale locale, HttpServletRequest request) throws Exception {
-
-            if (this.viewResolvers != null) {
-                for (ViewResolver viewResolver : this.viewResolvers) {
-                    View view = viewResolver.resolveViewName(viewName, locale);
-                    if (view != null) {
-                        return view;
-                    }
-                }
-            }
-            return null;
-        }
-        //...
-   }
-   ```
-
-<details>
-<summary>꼬리질문</summary>
-<div markdown="1">
-
-### MVC 패턴에 대해 설명해주세요.
-
-Model, View, Controller 를 구성요소로 개발하는 패턴
-
-#### Model
-
-- 데이터와 비즈니스 로직을 담당
-
-#### View
-
-- 사용자 인터페이스를 표현하고 데이터를 시각적으로 표현하는 역할
-
-#### Controller
-
-- 사용자의 입력을 처리하고 Model 과 View 를 연결하는 역할
-
-</div>
-</details>
-
-<br>
+[⬆️ 처음으로](#-contents)
 
 ### 2. Spring MVC 처리흐름에 대해서 말해보세요.
 
@@ -205,6 +133,8 @@ Model, View, Controller 를 구성요소로 개발하는 패턴
 </details>
 
 <br>
+
+[⬆️ 처음으로](#-contents)
 
 ---
 
@@ -253,7 +183,7 @@ Model, View, Controller 를 구성요소로 개발하는 패턴
 </div>
 </details>
 
-<br>
+[⬆️ 처음으로](#-contents)
 
 ---
 
@@ -318,7 +248,7 @@ DB Connection 을 획들할때는 다음과 같은 과정을 거침
 </div>
 </details>
 
-<br>
+[⬆️ 처음으로](#-contents)
 
 ---
 
@@ -366,10 +296,7 @@ DB Connection 을 획들할때는 다음과 같은 과정을 거침
     - 연관된 객체조회시 영속성 컨텍스트에서 객체의 프록시 객체를 가져옴
     - `FetchType=EAGER` 를 사용시 프록시 객체가 아닌 원본 객체를 가져옴
 
-<br> 
-
-
-
+<br>
 <br>
 
 ### JPA 에서 엔티티의 생명 주기에 대해 설명해주세요.
@@ -393,7 +320,7 @@ DB Connection 을 획들할때는 다음과 같은 과정을 거침
 </div>
 </details>
 
-<br>
+[⬆️ 처음으로](#-contents)
 
 ---
 
@@ -446,6 +373,8 @@ DB Connection 을 획들할때는 다음과 같은 과정을 거침
 </details>
 
 <br>
+
+[⬆️ 처음으로](#-contents)
 
 
 <br>

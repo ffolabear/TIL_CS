@@ -1,6 +1,6 @@
 # Java 면접대비 질문 리스트
 
-<hr>
+---
 
 ### 📄 Contents
 
@@ -109,6 +109,8 @@
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 2. JVM 에 대해 아는 것을 설명해보세요.
@@ -190,6 +192,8 @@
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 3. 자바의 데이터 타입에는 어떤것이 있나요?
@@ -244,6 +248,8 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 4. Call by value 와 Call by Reference 에 대해서 설명해주세요.
@@ -296,6 +302,8 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 5. Java의 non-static 멤버와 static 멤버의 차이에 대해서 설명해보세요.
@@ -340,6 +348,8 @@ String, StringBuilder, StringBuffer 세가지가 존재
 </details>
 
 <br>
+
+[⬆️ 처음으로](#-contents)
 
 ---
 
@@ -403,6 +413,8 @@ String, StringBuilder, StringBuffer 세가지가 존재
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 7. 자바에서 Thread 를 구현하려면 어떻게 해야하나요?
@@ -451,6 +463,8 @@ Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이�
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 8. Error 와 Exception 에 대해 설명해주세요.
@@ -498,6 +512,8 @@ Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이�
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 9. 제네릭에 대해 설명해주세요.
@@ -521,6 +537,8 @@ Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이�
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 10. Servlet 에 대해 설명해주세요.
@@ -530,6 +548,8 @@ Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이�
 
 <br>
 
+[⬆️ 처음으로](#-contents)
+
 ---
 
 ### 11. 직렬화에 대해 설명해주세요.
@@ -537,6 +557,12 @@ Code 영역와 Data 영역은 선언시 크기가 결정되는 정적 영역이�
 - 자바에서는 Object 를 byte 스트림 형태로 변환
 - 직렬화를 하기 위해서는 기본형 타입이거나 Serializable 인터페이스를 상속 받아야 함
 - 프로젝트에서 REST API 를 구현할때 JSON 으로 응답을 보낸것도 직렬화에 포함
+
+<br>
+
+[⬆️ 처음으로](#-contents)
+
+---
 
 <br>
 <br>
